@@ -65,8 +65,8 @@ masses[N-1].color = color.blue
 masses[N-1].mass = 0.00405
 
 
-#pulses = [0.2, 0.3, 0.4, 0.45, 0.5, 0.9, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 3]        # current frequencies (Hz) converted to (rad/s)
-pulses = [0.2,0.225,0.25,0.275,0.3,0.325,0.35,0.375,0.4,0.425,0.45,0.475,0.5,0.525,0.53,0.535,0.54,0.545,0.55,0.56,0.565,0.57,0.575,0.58,0.59,0.6,0.65,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.75,1.775,1.8,1.825,1.85,1.875,1.9,1.925,1.95,1.975,2.0,2.025,2.05,2.075,2.1,2.125,2.15,2.175,2.2,2.3,2.4,2.5]
+pulses = [0.2, 0.3, 0.4, 0.45, 0.5, 0.9, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 3]        # current frequencies (Hz) converted to (rad/s)
+
 for i in range(len(pulses)):
     pulses[i] = pulses[i]*2*pi
 
@@ -146,12 +146,10 @@ for curr_pulse in pulses:
     osc = max(temp) - min(temp)
     mechanical_oscillations.append(max(temp) - min(temp))
     
-    with open('frequenze', 'a') as file:
+    with open('frequenze', 'a') as file:                 #scrivo le frequenze in un file chiamato "frequenze"
         file.write(('%f\n')%((curr_pulse)/(2*pi)))
-    with open('ampiezze', 'a') as file:
+    with open('ampiezze', 'a') as file:                  #scrivo le valore delle ampiezze in un file chiamato "ampiezze"
         file.write(('%f\n')%(osc))
-    
-    #outfile.write(('%f %f\n')%(curr_pulse/(2*pi),osc))
 
     frequency_curve.plot(curr_pulse/(2*pi), osc)
 
